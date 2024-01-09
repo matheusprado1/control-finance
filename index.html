@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control Finance</title>
+  <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Control Finance - Seu controle financeiro" />
+  <link rel="stylesheet" href="./src/styles/globalStyles.css" />
+  <link rel="stylesheet" href="./src/styles/index.css" />
+  <script src="./src/scripts/modal.js" type="module" defer></script>
+  <script src="./src/scripts/valuesDatabase.js" type="module" defer></script>
+  <script src="./src/scripts/filter.js" type="module" defer></script>
+  <script src="./src/scripts/index.js" type="module" defer></script>
+</head>
+
+<body>
+  <header class="nav-bar">
+    <h1 class="nav-bar__title"><span>Control</span> Finance</h1>
+    <button class="nav-bar__insert-value" id="register">Registrar novo valor</button>
+    <dialog id="modalController" class="modal-controller">
+      <div class="modal__container">
+        <div class="modal__header">
+          <p>Registro de valor</p>
+          <button class="closeModal">X</button>
+        </div>
+        <p>Digite o valor e em seguida aperte no botão referente ao tipo do valor</p>
+        <div class="modal__form">
+          <label for="">Valor</label>
+          <input type="text" class="modal__input" placeholder="R$ 00,00">
+        </div>
+        <div class="modal__buttons-type">
+          <p>Tipo de valor</p>
+          <button class="button-type">Entrada</button>
+          <button class="button-type">Saída</button>
+        </div>
+        <div class="modal__action__container">
+          <button class="action__cancel closeModal">Cancelar</button>
+          <button class="action__insert">Inserir valor</button>
+        </div>
+      </div>
+    </dialog>
+  </header>
+  <main class="main__container" id="app">
+    <div class="filter__container">
+      <h3>Resumo financeiro</h3>
+      <div class="filter__buttons">
+        <button class="button__outline" id="all">Todos</button>
+        <button class="button__outline" id="entries">Entradas</button>
+        <button class="button__outline" id="out">Saídas</button>
+      </div>
+    </div>
+    <div class="sum-values__container">
+      <p>Soma dos valores</p>
+      <p id="total"></p>
+    </div>
+    <div class="cards__container"></div>
+  </main>
+</body>
+
+</html>
