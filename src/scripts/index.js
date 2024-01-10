@@ -3,12 +3,12 @@ import { applyCurrentFilter } from "./filter.js";
 
 export let localInsertedValues = [];
 
-const deleteButtons = () => {
-  const deleteButtons = document.querySelectorAll(".button__outline");
+const selectButtons = () => {
+  const selectButtons = document.querySelectorAll(".button__outline");
 
-  Array.from(deleteButtons).forEach(currentButton => {
+  Array.from(selectButtons).forEach(currentButton => {
     currentButton.addEventListener("click", () => {
-      deleteButtons.forEach(button => {
+      selectButtons.forEach(button => {
         button.classList.remove("button__select");
       });
       currentButton.classList.add("button__select");
@@ -146,5 +146,5 @@ const enableButtonInsert = () => {
 enableButtonInsert();
 buttonTypeSelect();
 handleAdd();
-deleteButtons();
+selectButtons();
 renderCards(localInsertedValues);
