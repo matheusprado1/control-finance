@@ -43,6 +43,11 @@
 
 body {
   font-family: var(--font-family-1);
+  background-color: var(--color-mode);
+}
+
+button {
+  cursor: pointer;
 }
 
 .main__container {

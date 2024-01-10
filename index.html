@@ -9,7 +9,13 @@
   <link rel="shortcut icon" href="./src/assets/favicon.ico" type="image/x-icon" />
   <meta name="description" content="Control Finance - Seu controle financeiro" />
   <link rel="stylesheet" href="./src/styles/globalStyles.css" />
-  <link rel="stylesheet" href="./src/styles/index.css" />
+  <!-- <link rel="stylesheet" href="./src/styles/index.css" /> -->
+  <link rel="stylesheet" href="./src/styles/navBar.css">
+  <link rel="stylesheet" href="./src/styles/modal.css">
+  <link rel="stylesheet" href="./src/styles/filter.css">
+  <link rel="stylesheet" href="./src/styles/empty.css">
+  <link rel="stylesheet" href="./src/styles/card.css">
+  <link rel="stylesheet" href="./src/styles/mediaQuery.css">
   <script src="./src/scripts/modal.js" type="module" defer></script>
   <script src="./src/scripts/valuesDatabase.js" type="module" defer></script>
   <script src="./src/scripts/filter.js" type="module" defer></script>
@@ -23,22 +29,22 @@
     <dialog id="modalController" class="modal-controller">
       <div class="modal__container">
         <div class="modal__header">
-          <p>Registro de valor</p>
-          <button class="closeModal">X</button>
+          <p class="modal__title">Registro de valor</p>
+          <button class="closeModal modal__close">X</button>
         </div>
-        <p>Digite o valor e em seguida aperte no botão referente ao tipo do valor</p>
+        <p class="modal__description">Digite o valor e em seguida aperte no botão referente ao tipo do valor</p>
         <div class="modal__form">
-          <label for="">Valor</label>
-          <input type="text" class="modal__input" placeholder="R$ 00,00">
+          <label for="" class="modal__label">Valor</label>
+          <input type="number" min="0.1" required class="modal__input" id="input__insert" placeholder="R$ 00,00">
         </div>
         <div class="modal__buttons-type">
-          <p>Tipo de valor</p>
-          <button class="button-type">Entrada</button>
-          <button class="button-type">Saída</button>
+          <p class="modal__label">Tipo de valor</p>
+          <button class="button-type selected" id="button__entrie">Entrada</button>
+          <button class="button-type" id="button__out">Saída</button>
         </div>
         <div class="modal__action__container">
           <button class="action__cancel closeModal">Cancelar</button>
-          <button class="action__insert">Inserir valor</button>
+          <button class="action__insert" disabled="disabled" id="button__insert">Inserir valor</button>
         </div>
       </div>
     </dialog>
@@ -47,7 +53,7 @@
     <div class="filter__container">
       <h3>Resumo financeiro</h3>
       <div class="filter__buttons">
-        <button class="button__outline" id="all">Todos</button>
+        <button class="button__outline button__select" id="all">Todos</button>
         <button class="button__outline" id="entries">Entradas</button>
         <button class="button__outline" id="out">Saídas</button>
       </div>

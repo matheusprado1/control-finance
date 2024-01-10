@@ -1,0 +1,64 @@
+@media (min-width: 680px) {
+  .nav-bar {
+    flex-direction: row;
+    align-items: center;
+    height: 109px;
+    padding: 0px;
+    gap: 0px
+  }
+  .nav-bar__insert-value {
+    align-self: center;
+  }
+
+  .modal__container {
+    width: auto;
+  }
+
+  .modal__input {
+    width: 100%;
+  }
+
+  .modal__buttons-type {
+    flex-direction: row;
+
+  }
+
+  .modal__action__container {
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+
+  .button-type {
+    margin-left: 14px;
+  }
+
+  .filter__container {
+    margin-top: 55px;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+
+  }
+
+  .sum-values__container {
+    height: 44px; 
+  }
+
+  .empty__container {
+    padding: 16px 30%;
+  }
+
+  .empty__title {
+    white-space: nowrap;
+  }
+
+  .action__cancel, .action__insert {
+    width: auto;
+  }
+}
+
+@media (min-width: 440px) {
+  .empty__container {
+    padding: 16px 35%;
+  }
+}
