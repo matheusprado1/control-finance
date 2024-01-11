@@ -9,7 +9,7 @@
 }
 
 .button__outline {
-  border-radius: 8px;
+  border-radius: var(--radius-1);
   border: 1.5px solid var(--color-grey-5);
   background: var(--color-mode);
 
@@ -21,7 +21,7 @@
   gap: 10px;
 }
 
-.button__select {
+.button--selected {
   border: 1.5px solid var(--color-brand-1);
   background: var(--color-brand-3);
   color: var(--color-brand-1)
@@ -35,7 +35,8 @@
   justify-content: space-between;
   align-items: center; 
 
-  border-radius: 8px;
+  border-radius: var(--radius-1);
   border: 1.5px solid var(--color-grey-4);
-  background: var(--color-grey-5); 
+  background: var(--color-grey-5);
+  font-size: var(--font-size-3);
 }

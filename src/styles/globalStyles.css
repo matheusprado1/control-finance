@@ -43,7 +43,7 @@
 
 body {
   font-family: var(--font-family-1);
-  background-color: var(--color-mode);
+  background-color: var(--fixed-white);
 }
 
 button {

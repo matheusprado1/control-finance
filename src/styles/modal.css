@@ -1,9 +1,7 @@
 .modal-controller {
   padding: 0;
   margin: auto;
-  
-  border-radius: 8px;
-  background: #FFF;
+  border-radius: var(--radius-1);
   border: none;
 }
 
@@ -12,12 +10,11 @@
   gap: 25px;
   display: flex;
   flex-direction: column;
-
-  
+  animation: 0.2s ease;
 }
 
-dialog::backdrop {
-  background-color: rgba(0,0,0, 0.8);
+.modal-controller::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal__header {
@@ -29,26 +26,25 @@ dialog::backdrop {
 
 .modal__title {
   color: var(--color-grey-1);
-  font-size: 16px;
-  font-weight: 600; 
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-1); 
 }
 
 .modal__close {
   display: flex;
   padding: 4px 12px;
   gap: 10px;
-
-  border-radius: 4px;
+  border-radius: var(--radius-2);
   background: var(--color-grey-5);
   border: 1.5px solid var(--color-grey-5);
-  color: var(--color-grey-2)
+  color: var(--color-grey-2);
 }
 
 .modal__description {
   color: var(--color-grey-2);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 150%;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-3);
+  line-height: var(--font-line-height-1);
 }
 
 .modal__form {
@@ -63,8 +59,7 @@ dialog::backdrop {
   padding: 0px 16px;
   align-items: center;
   gap: 12px;
-
-  border-radius: 8px;
+  border-radius: var(--radius-1);
   border: 1.5px solid var(--color-grey-3);
   background: var(--color-mode); 
 
@@ -76,8 +71,8 @@ dialog::backdrop {
 
 .modal__label {
   color: var(--color-grey-1);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-2);
 }
 
 .modal__buttons-type {
@@ -95,13 +90,11 @@ dialog::backdrop {
   align-items: center;
   gap: 10px;
   align-self: stretch;
-  border-radius: 8px;
+  border-radius: var(--radius-1);
   color: var(--color-grey-2);
   border: 1.5px solid var(--color-grey-5);
   background: var(--color-mode); 
 }
-
-
 
 .modal__action__container {
   display: inline-flex;
@@ -116,27 +109,27 @@ dialog::backdrop {
   gap: 10px;
   white-space: nowrap;
   width: 50%;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: var(--radius-1);
+  font-size: var(--font-size-3);
 }
 
 .action__cancel {
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: var(--font-weight-1);
+  border-radius: var(--radius-1);
   border: 1.5px solid var(--color-grey-4);
   background-color: var(--color-grey-4);
   color: var(--color-grey-2);
 }
 
 .action__cancel:hover {
-  background-color: var(--color-grey-3)
+  background-color: var(--color-grey-3);
 }
 
 .action__insert {
-  border-radius: 8px;
   border: 1.5px solid var(--color-brand-1);
   background: var(--color-brand-1);
   color: #FFF;
+  border-radius: var(--radius-1);
 }
 
 .action__insert:hover {
@@ -146,4 +139,13 @@ dialog::backdrop {
 .selected {
   color: var(--color-brand-1);
   border: 1.5px solid var(--color-brand-1); 
+}
+
+.dialog-modal {
+  animation: modal-entrance var(--animation-duration) var(--animation-type);
+}
+
+@keyframes modal-entrance {
+  from {opacity: 0; transform: translateY(-50px);}
+  to {opacity: 1; transform: translateY(0);}
 }

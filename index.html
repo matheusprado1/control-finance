@@ -24,8 +24,10 @@
 
 <body>
   <header class="nav-bar">
-    <h1 class="nav-bar__title"><span>Control</span> Finance</h1>
-    <button class="nav-bar__insert-value" id="register">Registrar novo valor</button>
+    <div class="nav-bar__container">
+      <h1 class="nav-bar__title"><span>Control</span> Finance</h1>
+      <button class="nav-bar__insert-value" id="register">Registrar novo valor</button>
+    </div>
     <dialog id="modalController" class="modal-controller">
       <div class="modal__container">
         <div class="modal__header">
@@ -39,8 +41,8 @@
         </div>
         <div class="modal__buttons-type">
           <p class="modal__label">Tipo de valor</p>
-          <button class="button-type selected" id="button__entrie">Entrada</button>
-          <button class="button-type" id="button__out">Saída</button>
+          <button class="button-type selected" id="button__entry">Entrada</button>
+          <button class="button-type" id="button__exit">Saída</button>
         </div>
         <div class="modal__action__container">
           <button class="action__cancel closeModal">Cancelar</button>
@@ -53,16 +55,20 @@
     <div class="filter__container">
       <h3>Resumo financeiro</h3>
       <div class="filter__buttons">
-        <button class="button__outline button__select" id="all">Todos</button>
+        <button class="button__outline button--selected" id="all">Todos</button>
         <button class="button__outline" id="entries">Entradas</button>
-        <button class="button__outline" id="out">Saídas</button>
+        <button class="button__outline" id="exit">Saídas</button>
       </div>
     </div>
     <div class="sum-values__container">
       <p>Soma dos valores</p>
       <p id="total"></p>
     </div>
-    <div class="cards__container"></div>
+    <div class="card__container"></div>
+    <div class="empty__container" id="empty">
+      <p class="empty__title">Nenhum valor cadastrado</p>
+      <p class="empty__info">Registrar novo valor</p>
+    </div>
   </main>
 </body>
 

@@ -1,7 +1,20 @@
-import { localInsertedValues } from "./index.js";
 import { renderCards } from "./index.js";
+import { localInsertedValues } from "./index.js";
 
 let insertedValuesFiltered = [];
+
+const selectFilterButtons = () => {
+  const filterSelectionButtons = document.querySelectorAll(".button__outline");
+
+  Array.from(filterSelectionButtons).forEach(currentButton => {
+    currentButton.addEventListener("click", () => {
+      filterSelectionButtons.forEach(button => {
+        button.classList.remove("button--selected");
+      });
+      currentButton.classList.add("button--selected");
+    })
+  })
+}
 
 const filterTotal = (array = []) => {
   insertedValuesFiltered = [...array];
@@ -11,7 +24,7 @@ const filterEntries = (array = []) => {
   insertedValuesFiltered = array.filter(item => item.categoryID === 0);
 }
 
-const filterOut = (array = []) => {
+const filterExit = (array = []) => {
   insertedValuesFiltered = array.filter(item => item.categoryID === 1);
 }
 
@@ -22,7 +35,7 @@ const sumTotalFilter = (array = []) => {
   }).reduce((a, b) => a + b, 0);
 }
 
-export const renderTotalFilter = (array = []) => {
+const renderTotalFilter = (array = []) => {
   const total = document.querySelector("#total");
   total.textContent = `R$ ${sumTotalFilter(array).toFixed(2)}`;
 }
@@ -37,32 +50,35 @@ export const applyCurrentFilter = () => {
     case 'entries':
       filterEntries(localInsertedValues);
       break;
-    case 'out':
-      filterOut(localInsertedValues);
+    case 'exit':
+      filterExit(localInsertedValues);
       break;
   }
   renderCards(insertedValuesFiltered);
   renderTotalFilter(insertedValuesFiltered);
 }
 
-export const handleFilter = () => {
+const handleFilter = () => {
   const allButton = document.querySelector("#all");
   const entriesButton = document.querySelector("#entries");
-  const outButton = document.querySelector("#out");
+  const exitButton = document.querySelector("#exit");
 
   allButton.addEventListener("click", () => {
     currentFilter = 'all';
     applyCurrentFilter();
+
   })
   entriesButton.addEventListener("click", () => {
     currentFilter = 'entries';
     applyCurrentFilter();
   })
-  outButton.addEventListener("click", () => {
-    currentFilter = 'out';
+  exitButton.addEventListener("click", () => {
+    currentFilter = 'exit';
     applyCurrentFilter();
   })
 }
+
+selectFilterButtons();
 handleFilter();
 renderTotalFilter(localInsertedValues);
 

@@ -1,13 +1,21 @@
 const handleModal = () => {
   const button = document.querySelector("#register");
+  const emptyContainer = document.querySelector("#empty");
   const modalContainer = document.querySelector("#modalController");
 
+  console.log(emptyContainer);
+
   button.addEventListener("click", () => {
+    modalContainer.classList.add("dialog-modal");
+    modalContainer.showModal();
+    closeModal();
+  })
+  emptyContainer.addEventListener("click", () => {
+    modalContainer.classList.add("dialog-modal");
     modalContainer.showModal();
     closeModal();
   })
 }
-handleModal();
 
 const closeModal = () => {
   const closeModalButton = document.querySelectorAll(".closeModal");
@@ -16,6 +24,9 @@ const closeModal = () => {
   Array.from(closeModalButton).forEach(item => {
     item.addEventListener("click", () => {
       modalContainer.close();
+      modalContainer.classList.remove("dialog-modal");
     })
   })
 }
+
+handleModal();

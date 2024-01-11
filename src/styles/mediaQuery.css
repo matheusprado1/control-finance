@@ -1,11 +1,9 @@
 @media (min-width: 680px) {
-  .nav-bar {
+  .nav-bar__container {
     flex-direction: row;
-    align-items: center;
-    height: 109px;
-    padding: 0px;
-    gap: 0px
+    justify-content: space-between;
   }
+
   .nav-bar__insert-value {
     align-self: center;
   }
@@ -37,7 +35,6 @@
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
-
   }
 
   .sum-values__container {
