@@ -78,8 +78,8 @@ const handleFilter = () => {
   })
 }
 
-selectFilterButtons();
 handleFilter();
+selectFilterButtons();
 renderTotalFilter(localInsertedValues);
 
 

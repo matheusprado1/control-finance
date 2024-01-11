@@ -3,8 +3,6 @@ const handleModal = () => {
   const emptyContainer = document.querySelector("#empty");
   const modalContainer = document.querySelector("#modalController");
 
-  console.log(emptyContainer);
-
   button.addEventListener("click", () => {
     modalContainer.classList.add("dialog-modal");
     modalContainer.showModal();

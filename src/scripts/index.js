@@ -92,27 +92,38 @@ const generateId = () => {
   return idCounter++;
 }
 
+
 const handleAdd = () => {
   const input = document.querySelector("#input__insert");
   const button = document.querySelector("#button__insert");
 
-
   button.addEventListener("click", () => {
-    let valueWithoutSpace = input.value.trim();
-    if (valueWithoutSpace === "" || Number(valueWithoutSpace) <= 0) {
-      alert("Por favor, insira um valor válido maior que zero.")
+    // Verifica se o valor é um número
+    if (isNaN(input.value) || input.value.trim() === '') {
+      console.log('Por favor, insira um número válido.');
       return;
     }
-    let id = generateId();
-    let categoryID = getCategoryID();
 
-    localInsertedValues.push({ id, value: Number(valueWithoutSpace), categoryID });
-    console.log(localInsertedValues);
+    let id = generateId();
+    console.log('Generated id:', id);  // New log
+
+    let categoryID = getCategoryID();
+    console.log('Category ID:', categoryID);  // New log
+
+    let value = parseFloat(input.value);
+    console.log('Input value:', value);  // New log
+
+    categoryID = categoryID !== undefined ? categoryID : 0;
+
+    localInsertedValues.push({ id, value, categoryID });
+    console.log('Updated array:', localInsertedValues);  // New log
 
     applyCurrentFilter();
     input.value = "";
   });
+
 }
 
-handleAdd();
+
 selectCategoryButton();
+handleAdd();
